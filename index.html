@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life N Color - Luxury Crochet Artistry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #f8f6f0;
+            color: #2c2c2c;
+        }
+
+        .luxury-cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+            animation: luxuryShimmer 20s ease infinite;
+        }
+
+        @keyframes luxuryShimmer {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            z-index: 2;
+            color: #f8f6f0;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .brand-logo {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: elegantFadeIn 2s ease 0.5s forwards;
+            letter-spacing: 0.1em;
+            background: linear-gradient(45deg, #d4af37, #ffd700, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: elegantFadeIn 2s ease 1s forwards;
+            font-style: italic;
+            color: #d4af37;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: elegantFadeIn 2s ease 1.5s forwards;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .luxury-cta {
+            display: inline-block;
+            padding: 18px 45px;
+            background: transparent;
+            color: #d4af37;
+            text-decoration: none;
+            border: 2px solid #d4af37;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: elegantFadeIn 2s ease 2s forwards;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .luxury-cta:hover::before {
+            left: 100%;
+        }
+
+        .luxury-cta:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        @keyframes elegantFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 0;
+            background: rgba(248, 246, 240, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        nav.hero-nav {
+            background: rgba(26, 26, 26, 0.9);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #d4af37;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+        }
+
+        nav.hero-nav .nav-logo {
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        nav.hero-nav a {
+            color: #f8f6f0;
+        }
+
+        nav a:not(.nav-logo)::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        nav a:not(.nav-logo):hover::after {
+            width: 100%;
+        }
+
+        .section {
+            padding: 120px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #4a4a4a;
+        }
+
+        .about-text h3 {
+            color: #d4af37;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #d4af37, #b8860b);
+            aspect-ratio: 4/3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-section {
+            background: #f8f6f0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image styling */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        /* Product Name Styles */
+        .product-name {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 26, 0.85);
+            color: #f8f6f0;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .product-name h3 {
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin: 0;
+            color: #D4AF37;
+        }
+
+        .gallery-item:hover .product-name {
+            bottom: 0;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Hover effects */
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== PRICE TAG STYLES ===== */
+        .price-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #D4AF37, #F1C40F);
+            color: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-family: 'Georgia', serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+            z-index: 2;
+            transform: rotate(-5deg);
+            transition: all 0.3s ease;
+        }
+
+        .price-tag .price {
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-item:hover .price-tag {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Ensure gallery-item has positioning context */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gold accent for hover state */
+        .gallery-item::after {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(212, 175, 55, 0);
+            border-radius: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            border: 2px solid rgba(212, 175, 55, 0.5);
+        }
+
+        .styling-section {
+            background: #ffffff;
+        }
+
+        .styling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .styling-card {
+            background: #f8f6f0;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .styling-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .styling-card:hover::before {
+            left: 100%;
+        }
+
+        .styling-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .styling-card h3 {
+            color: #d4af37;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .styling-card p {
+            color: #4a4a4a;
+            line-height: 1.8;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #f8f6f0;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 35px;
+            background: transparent;
+            color: #d4af37;
+            text-decoration: none;
+            border: 2px solid #d4af37;
+            border-radius: 50px;
+            font-weight: 400;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #d4af37;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .contact-btn:hover::before {
+            left: 0;
+        }
+
+        .contact-btn:hover {
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        #interest-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #D4AF37;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            z-index: 100;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #interest-counter {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4757;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Modal Styles */
+        .modal {
+            border: none;
+            border-radius: 8px;
+            padding: 0;
+            width: 90%;
+            max-width: 500px;
+            background: #f8f5f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content {
+            position: relative;
+            padding: 2rem;
+            font-family: 'Georgia', serif;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 70vh;
+            margin-bottom: 20px;
+        }
+
+        .modal h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+        }
+
+        .primary {
+            background: #25D366;
+            color: white;
+            border: none;
+        }
+
+        .secondary {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+
+        #continue-shopping:hover {
+            transform: translateX(-3px);
+            transition: transform 0.2s;
+        }
+
+        /* Click outside to close */
+        .modal::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .modal::backdrop:focus {
+            outline: none;
+        }
+
+        #interest-items-container {
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .interest-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
+        .remove-item:hover {
+            color: #ff0000;
+        }
+
+        .modal-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .total {
+            font-weight: bold;
+            text-align: right;
+            font-size: 1.1rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .close-btn,
+        .whatsapp-btn {
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+
+        .close-btn {
+            background: #e0e0e0;
+            border: none;
+        }
+
+        /* FAB Styles */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #D4AF37;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .counter {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Toast Styles */
+        .luxury-toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            z-index: 1001;
+            animation: fadeIn 0.3s;
+        }
+
+        .fade-out {
+            animation: fadeOut 0.3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                bottom: 80px;
+            }
+
+            to {
+                opacity: 1;
+                bottom: 100px;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                bottom: 100px;
+            }
+
+            to {
+                opacity: 0;
+                bottom: 80px;
+            }
+        }
+
+        #interest-items {
+            max-height: 50vh;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding: 10px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .interest-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: block;
+            background: #25D366;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: #128C7E;
+        }
+
+        .interest-heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .interest-heart.added {
+            color: #ff4757 !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: #ff4757 !important;
+            text-shadow: 0 0 10px rgba(255, 71, 87, 0.7);
+            animation: heartBeat 0.6s ease;
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.3);
+            }
+
+            50% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item:hover .interest-heart {
+            color: white;
+            background: rgba(212, 175, 55, 0.7);
+        }
+
+        .luxury-toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(26, 26, 26, 0.9);
+            color: #D4AF37;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-family: 'Georgia', serif;
+            z-index: 1000;
+            opacity: 0;
+            animation: toastFadeInOut 3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes toastFadeInOut {
+            0% {
+                opacity: 0;
+                bottom: 80px;
+            }
+
+            20% {
+                opacity: 1;
+                bottom: 100px;
+            }
+
+            80% {
+                opacity: 1;
+                bottom: 100px;
+            }
+
+            100% {
+                opacity: 0;
+                bottom: 120px;
+            }
+        }
+
+        @keyframes luxuryFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 0.6;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 25px;
+            }
+
+            .section {
+                padding: 80px 20px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            product-name {
+                bottom: 0 !important;
+                background: rgba(26, 26, 26, 0.7);
+                padding: 10px;
+            }
+
+            .product-name h3 {
+                font-size: 1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .gallery-grid,
+            .styling-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .styling-card {
+                padding: 30px 20px;
+            }
+
+            .interest-heart {
+                width: 48px;
+                height: 48px;
+                /* Better touch target */
+            }
+
+            .luxury-toast {
+                width: 90%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .brand-logo {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .luxury-cta {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .luxury-cursor {
+            position: fixed;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="luxury-cursor"></div>
+
+    <nav id="navbar" class="hero-nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">Life N Color</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#styling">Styling</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="brand-logo">Life N Color</h1>
+            <p class="hero-tagline">Exquisite Crochet Artistry</p>
+            <p class="hero-description"> Crafting bespoke crochet masterpieces for discerning clients who appreciate the
+                finest artistry.
+                Each piece is meticulously handcrafted with premium materials, designed to elevate your style with
+                timeless elegance.</p>
+            <a href="#about" class="luxury-cta">Discover Our Craft</a>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="section-header">
+            <h2 class="section-title">About KingIfe</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Where Handmade Meets Royalty</h3>
+                <p>Life N Color is not just a crochet brans, it is a movement of boldness, self-expression and royalty.
+                </p>
+
+                <p>Founded by KingIfe, a Visionary creative who turns yarn into art, every piece from Life N Color
+                    is handmade and designed to adorn royalties.</p>
+
+                <p>From statement crochet earrings and wearble art, Life N Color exists to empower individuals to
+                    express their identity with confidence
+                    and color, one stitch at a time.</p>
+
+                <p>At the heart of Life N Color is a story of courage, culture and creativity. KingIfe designs and
+                    handcrafts each piece with purpose, turning simple yarn into powerful expressions of identity,
+                    heritage and style.</p>
+
+                <p>Every pair of earrings is more than fashion, it is a symbol of confidence. A celebration of
+                    individulaity.</p>
+
+                <p>Our vision is to grow Life N Color into A multi-million-dollar fashion and lifestyle brand.</p>
+
+                <p>We are building a global empire of color, community and impact.</p>
+
+                <p>Thank you for stepping into our world.</p>
+
+                <p>Whether you are here to shop, collaborate or just explore, welcome to Life N Color, where handmade
+                    meets royalty.</p>
+            </div>
+            <div class="about-image">
+                <span>KingIfe's Artistry</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section gallery-section">
+        <div class="section-header">
+            <h2 class="section-title">Gallery</h2>
+            <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">A curated collection showcasing
+                the finest in royalty crochet artistry</p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <!-- Image Item -->
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/royal-shawls.webp" type="public/webp">
+                    <source srcset="images/royal-shawls.jpg" type="public/jpeg">
+                    <img src="public/royal-evening-shawls.jpeg" alt="Royal Evening Shawls" loading="lazy">
+                </picture>
+
+                <!-- Gold Price Ribbon (Always visible) -->
+                <div class="price-tag">
+                    <span class="price">NGN 15,000</span>
+                </div>
+
+                <!-- Product Name (Hover-only) -->
+                <div class="product-name">
+                    <h3>Royal Evening Shawls</h3>
+                </div>
+
+                <!-- Heart Button -->
+                <button class="interest-heart" data-id="shawl-001" data-name="Royal Evening Shawls" data-price="15000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/ceremonial-wraps.webp" type="public/webp">
+                    <source srcset="images/products/ceremonial-wraps.jpg" type="public/jpeg">
+                    <img src="public/ceremonial-wraps.jpg" alt="Ceremonial Wraps" loading="lazy">
+                </picture>
+
+                <!-- Gold Price Ribbon (Always visible) -->
+                <div class="price-tag">
+                    <span class="price">NGN 15,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Ceremonial Wraps</h3>
+                </div>
+
+                <button class="interest-heart" data-id="wrap-001" data-name="Ceremonial Wraps" data-price="15000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/elegant-table-runners.webp" type="public/webp">
+                    <source srcset="public/products/elegant-table-runners.jpg" type="public/jpeg">
+                    <img src="public/elegant-table-runners.jpg" alt="Elegant Table Runners" loading="lazy">
+                </picture>
+
+                <!-- Gold Price Ribbon (Always visible) -->
+                <div class="price-tag">
+                    <span class="price">NGN 10,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Elegant Table Runners</h3>
+                </div>
+
+                <button class="interest-heart" data-id="runner-002" data-name="Elegant Table Runners" data-price="10000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/luxury-throws.webp" type="public/webp">
+                    <source srcset="public/products/luxury-throws.jpg" type="public/jpeg">
+                    <img src="public/luxury-throws.jpg" alt="Luxury Throws" loading="lazy">
+                </picture>
+
+                <!-- Gold Price Ribbon (Always visible) -->
+                <div class="price-tag">
+                    <span class="price">NGN 12,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Luxury Throws</h3>
+                </div>
+
+                <button class="interest-heart" data-id="throw-001" data-name="Luxury Throws" data-price="12000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/royal-evening-shawls.webp" type="public/webp">
+                    <source srcset="images/products/royal-evening-shawls.jpg" type="public/jpeg">
+                    <img src="public/royal-evening-shawls.jpeg" alt="Royal Evening Shawls" loading="lazy">
+                </picture>
+
+                <div class="price-tag">
+                    <span class="price">NGN 17,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Royal Evening Shawls</h3>
+                </div>
+
+                <!-- Heart Button -->
+                <button class="interest-heart" data-id="shawl-001" data-name="Royal Evening Shawls" data-price="15000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/ceremonial-wraps.webp" type="public/webp">
+                    <source srcset="images/products/ceremonial-wraps.jpg" type="public/jpeg">
+                    <img src="public/ceremonial-wraps.jpg" alt="Ceremonial Wraps" loading="lazy">
+                </picture>
+
+                <div class="price-tag">
+                    <span class="price">NGN 15,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Ceremonial Wraps</h3>
+                </div>
+
+                <button class="interest-heart" data-id="wrap-002" data-name="Ceremonial Wraps" data-price="15000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/elegant-table-runners.webp" type="public/webp">
+                    <source srcset="public/products/elegant-table-runners.jpg" type="public/jpeg">
+                    <img src="public/elegant-table-runners.jpg" alt="Elegant Table Runners" loading="lazy">
+                </picture>
+
+                <div class="price-tag">
+                    <span class="price">NGN 10,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Elegant Table Runners</h3>
+                </div>
+
+                <button class="interest-heart" data-id="runner-001" data-name="Elegant Table Runners" data-price="10000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+
+            <div class="gallery-item">
+                <picture>
+                    <source srcset="images/products/luxury-throws.webp" type="public/webp">
+                    <source srcset="public/products/luxury-throws.jpg" type="public/jpeg">
+                    <img src="public/luxury-throws.jpg" alt="Luxury Throws" loading="lazy">
+                </picture>
+
+                <div class="price-tag">
+                    <span class="price">NGN 12,000</span>
+                </div>
+
+                <div class="product-name">
+                    <h3>Luxury Throws</h3>
+                </div>
+
+                <button class="interest-heart" data-id="throw-002" data-name="Luxury Throws" data-price="12000"
+                    aria-label="Add to interest list">
+                    ♡
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="styling" class="section styling-section">
+        <div class="section-header">
+            <h2 class="section-title">Styling & Color Harmony</h2>
+            <p style="font-size: 1.2rem; color: #666; max-width: 700px; margin: 0 auto;">Expert guidance on how to
+                perfectly complement your pieces with thoughtful color coordination and styling</p>
+        </div>
+
+        <div class="styling-grid">
+            <div class="styling-card">
+                <h3>Royal Blue Elegance</h3>
+                <p>Deep royal blues paired with gold accents create a regal presence perfect for formal occasions. These
+                    combinations exude sophistication and command attention in any distinguished gathering.</p>
+            </div>
+            <div class="styling-card">
+                <h3>Warm Earth Tones</h3>
+                <p>Rich browns, burnished golds, and warm creams work harmoniously to create pieces that speak of
+                    timeless luxury and understated elegance, perfect for intimate gatherings.</p>
+            </div>
+            <div class="styling-card">
+                <h3>Jewel Tone Sophistication</h3>
+                <p>Emerald greens, deep purples, and ruby reds create stunning statement pieces that reflect confidence
+                    and refined taste, ideal for making memorable impressions.</p>
+            </div>
+            <div class="styling-card">
+                <h3>Monochromatic Mastery</h3>
+                <p>Subtle variations within a single color family create depth and texture while maintaining an air of
+                    sophisticated restraint that speaks to discerning taste.</p>
+            </div>
+            <div class="styling-card">
+                <h3>Metallic Accents</h3>
+                <p>Strategic incorporation of gold and silver threads adds luminous touches that catch light
+                    beautifully, perfect for evening wear and special occasions.</p>
+            </div>
+            <div class="styling-card">
+                <h3>Seasonal Harmony</h3>
+                <p>Thoughtfully selected color palettes that complement the natural beauty of each season, ensuring your
+                    pieces remain timelessly appropriate year-round.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #f8f6f0;">Commission Your Masterpiece</h2>
+            <p style="font-size: 1.2rem; color: #d4af37; max-width: 600px; margin: 0 auto;">Ready to begin your journey
+                toward owning a truly exceptional piece? Connect with KingIfe to discuss your vision.</p>
+        </div>
+
+        <div class="contact-buttons">
+            <a href="https://wa.me/2348123478255?text=Hello%20KingIfe!%20I'm%20interested%20in%20commissioning%20a%20luxury%20crochet%20piece%20from%20Life%20N%20Color.%20Please%20share%20your%20collection%20details."
+                class="contact-btn" id="whatsapp-btn">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                </svg>
+                Message on WhatsApp
+            </a>
+            <a href="mailto:bythekingife@gmail.com?subject=Commission%20Inquiry&body=Dear%20KingIfe,%0A%0AI'm%20interested%20in%20commissioning%20a%20custom%20crochet%20piece.%20Please%20share%20your%20availability%20and%20pricing%20details.%0A%0ABest%20regards,"
+                class="contact-btn" id="email-btn">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                Email Me
+            </a>
+            <a href="https://www.tiktok.com/@kingifecrochet" class="contact-btn" id="tiktok-btn">
+                <svg class="contact-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+                </svg>
+                Find me on TikTok
+            </a>
+        </div>
+    </section>
+    <script>
+
+        // ======================
+        // OTHER FUNCTIONALITY
+        // ======================
+
+        // Smooth scrolling
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Luxury cursor
+        const luxuryCursor = document.querySelector('.luxury-cursor');
+        if (luxuryCursor) {
+            document.addEventListener('mousemove', (e) => {
+                luxuryCursor.style.left = `${e.clientX - 6}px`;
+                luxuryCursor.style.top = `${e.clientY - 6}px`;
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                navbar.classList.toggle('hero-nav', window.scrollY <= 50);
+            }
+        });
+        // Toast notification
+        function showToast(message, icon) {
+            const toast = document.createElement('div');
+            toast.className = 'luxury-toast';
+            toast.innerHTML = `<span class="toast-icon">${icon}</span> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 2000);
+        }
+
+
+        // INTEREST LIST SYSTEM
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM Elements
+            const interestFab = document.getElementById('interest-fab');
+            const interestModal = document.getElementById('interest-list-modal');
+            const interestCounter = document.getElementById('interest-counter');
+            const interestItemsContainer = document.getElementById('interest-items-container');
+            const interestTotal = document.getElementById('interest-total');
+            const whatsappBtn = document.getElementById('modal-whatsapp-btn');
+            const closeBtn = document.getElementById('modal-close');
+
+            // State
+            let interestList = [];
+
+            // Initialize
+            loadInterestList();
+            setupEventListeners();
+            initHearts();
+
+            // Core Functions
+            function loadInterestList() {
+                try {
+                    const savedList = localStorage.getItem('interestList');
+                    interestList = savedList ? JSON.parse(savedList) : [];
+                    updateUI();
+                } catch (e) {
+                    console.error("Failed to load interest list:", e);
+                    interestList = [];
+                }
+            }
+
+            function setupEventListeners() {
+                // Event delegation for heart buttons
+                document.addEventListener('click', function (e) {
+                    if (e.target.classList.contains('interest-heart')) {
+                        toggleInterestItem(e.target);
+                    }
+
+                    if (e.target.classList.contains('remove-item')) {
+                        const itemId = e.target.closest('.interest-item').dataset.id;
+                        removeInterestItem(itemId);
+                    }
+                });
+
+                // 1. FAB Click Handler (Always clickable)
+                if (interestFab) {
+                    interestFab.addEventListener('click', () => {
+                        console.log('FAB clicked'); // Debug check
+                        if (interestModal) {
+                            interestModal.showModal();
+                            updateModalContent(); // Refresh modal content when opened
+                        }
+                    });
+                }
+
+                // 2. Close Modal Handler
+                const closeBtn = document.getElementById('modal-close');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        interestModal?.close();
+                    });
+                }
+
+                // 3. WhatsApp Handler (Only if items exist)
+                const whatsappBtn = document.getElementById('modal-whatsapp-btn');
+                if (whatsappBtn) {
+                    whatsappBtn.addEventListener('click', sendWhatsAppMessage);
+                }
+
+            }
+
+            function toggleInterestItem(button) {
+                const item = {
+                    id: button.dataset.id,
+                    name: button.dataset.name,
+                    price: parseInt(button.dataset.price)
+                };
+
+                const itemIndex = interestList.findIndex(i => i.id === item.id);
+
+                if (itemIndex > -1) {
+                    interestList.splice(itemIndex, 1);
+                    showToast('Removed from Interest List', '♡');
+                } else {
+                    if (interestList.length >= 7) {
+                        showToast('Interest List full (max 7 items)', '!');
+                        return;
+                    }
+                    interestList.push(item);
+                    showToast('Added to Interest List', '♥');
+                }
+
+                button.innerHTML = itemIndex > -1 ? '♡' : '♥';
+                button.classList.toggle('added', itemIndex === -1);
+                saveInterestList();
+            }
+
+            function removeInterestItem(itemId) {
+                interestList = interestList.filter(item => item.id !== itemId);
+                saveInterestList();
+                updateModalContent(); // Update modal immediately when removing items
+            }
+
+            function sendWhatsAppMessage(e) {
+                e.preventDefault();
+                const itemsText = interestList.map(item =>
+                    `${item.name} - NGN ${item.price.toLocaleString()}`
+                ).join('%0A');
+
+                const total = interestList.reduce((sum, item) => sum + item.price, 0);
+                const message = `Hello Life N Color!%0A%0AI'm interested in:%0A${itemsText}%0A%0ATotal: NGN ${total.toLocaleString()}`;
+
+                window.open(`https://wa.me/2348123478255?text=${message}`, '_blank');
+            }
+
+            function updateUI() {
+                // Update counter
+                if (interestCounter) {
+                    interestCounter.textContent = interestList.length;
+                    interestCounter.style.display = interestList.length > 0 ? 'flex' : 'none';
+                }
+
+                // Update all heart buttons
+                document.querySelectorAll('.interest-heart').forEach(button => {
+                    const isAdded = interestList.some(item => item.id === button.dataset.id);
+                    button.innerHTML = isAdded ? '♥' : '♡';
+                    button.classList.toggle('added', isAdded);
+                });
+            }
+
+            function updateModalContent() {
+                // Update modal list
+                if (interestItemsContainer) {
+                    interestItemsContainer.innerHTML = interestList.length > 0
+                        ? interestList.map(item => `
+            <div class="interest-item" data-id="${item.id}">
+              <span>${item.name} - NGN ${item.price.toLocaleString()}</span>
+              <button class="remove-item">✕</button>
+            </div>
+          `).join('')
+                        : '<p class="empty-message">Your interest list is empty</p>';
+                }
+
+                const total = interestList.reduce((sum, item) => sum + item.price, 0);
+                document.getElementById('interest-total').textContent = total.toLocaleString();
+
+                // Show/hide WhatsApp button
+                if (whatsappBtn) {
+                    whatsappBtn.style.display = interestList.length > 0 ? 'block' : 'none';
+                }
+            }
+
+            function saveInterestList() {
+                try {
+                    localStorage.setItem('interestList', JSON.stringify(interestList));
+                    updateUI();
+                    updateModalContent();
+                } catch (e) {
+                    console.error("Failed to save interest list:", e);
+                }
+            }
+
+            function showToast(message, icon = '') {
+                const toast = document.createElement('div');
+                toast.className = 'luxury-toast';
+                toast.innerHTML = icon ? `<span class="toast-icon">${icon}</span>${message}` : message;
+
+                document.body.appendChild(toast);
+                setTimeout(() => {
+                    toast.classList.add('fade-out');
+                    setTimeout(() => toast.remove(), 300);
+                }, 2700);
+            }
+
+            function initHearts() {
+                document.querySelectorAll('.interest-heart').forEach(button => {
+                    const isAdded = interestList.some(item => item.id === button.dataset.id);
+                    if (isAdded) {
+                        button.innerHTML = '♥';
+                        button.classList.add('added');
+                    }
+                });
+            }
+
+            // JavaScript
+            function setupModal() {
+                const modal = document.getElementById('interest-list-modal');
+
+                // Close buttons
+                document.querySelector('.close-modal')?.addEventListener('click', () => modal.close());
+                document.getElementById('continue-shopping')?.addEventListener('click', () => {
+                    modal.close();
+                    document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+                });
+
+                // Click outside to close
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) modal.close();
+                });
+            }
+            setupModal();
+            // Initial UI update
+            updateUI();
+            updateModalContent();
+
+            continueShoppingBtn.addEventListener('click', () => {
+                console.log('User continued shopping with', interestList.length, 'items saved');
+            });
+        });
+        // End of DOMContentLoaded
+
+    </script>
+
+
+    <!-- Floating Action Button (already in your HTML) -->
+    <button id="interest-fab" class="fab">
+        ❤️
+        <span id="interest-counter" class="counter">0</span>
+    </button>
+
+    <dialog id="interest-list-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Selected Items</h3>
+                <button class="close-modal" aria-label="Close">✕</button>
+            </div>
+
+            <div id="interest-items-container"></div>
+
+            <div class="modal-footer">
+                <div class="total">Total: NGN <span id="interest-total">0</span></div>
+                <div class="modal-actions">
+                    <a id="modal-whatsapp-btn" class="button primary">Message on WhatsApp</a>
+                    <button id="continue-shopping" class="button secondary">
+                        ← Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+    <div class="luxury-cursor"></div>
+
+</body>
+
+</html>
