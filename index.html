@@ -291,26 +291,14 @@
         }
 
         .about-image {
-            background: linear-gradient(135deg, #d4af37, #b8860b);
             aspect-ratio: 4/3;
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
             font-size: 1.2rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
         }
 
         .gallery-section {
@@ -940,6 +928,92 @@
             }
         }
 
+        /* Hamburger Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 20px;
+            /* Adjust this value */
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hamburger Animation */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                /* background-color: #fff; */
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-menu li a {
+                font-size: 1.1rem;
+                padding: 1rem;
+                display: block;
+                width: 100%;
+                color: #000;
+                font-weight: 600;
+            }
+
+            .nav-menu li a::after {
+                display: none;
+            }
+
+            .nav-menu li a:hover {
+                background-color: #f8f8f8;
+                color: #d4af37;
+            }
+        }
+
+
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 20px;
@@ -954,6 +1028,11 @@
             .section {
                 padding: 80px 20px;
             }
+
+                .about-image {
+                    order: -1;
+                    /* Moves image above text */
+                }
 
             .about-content {
                 grid-template-columns: 1fr;
@@ -1044,7 +1123,12 @@
     <nav id="navbar" class="hero-nav">
         <div class="nav-container">
             <a href="#home" class="nav-logo"> Stitch & Story Co.</a>
-            <ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Gallery</a></li>
@@ -1104,7 +1188,7 @@
                 <p>Welcome to Stitch & Story Co., where craftsmanship meets storytelling.</p>
             </div>
             <div class="about-image">
-                <span>Elena's Artistry</span>
+                <img src="public/gold-erng-process.jpg" alt="Royal Evening Shawls" loading="lazy">
             </div>
         </div>
     </section>
@@ -1137,7 +1221,7 @@
                 </div>
 
                 <!-- Heart Button -->
-                <button class="interest-heart" data-id="shawl-001" data-name="Royal Evening Shawls" data-price="15000"
+                <button class="interest-heart" data-id="shawl-001" data-name="Golden Prism Drops" data-price="10000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1160,7 +1244,7 @@
                     <h3>Azure Knot Headband</h3>
                 </div>
 
-                <button class="interest-heart" data-id="wrap-001" data-name="Ceremonial Wraps" data-price="15000"
+                <button class="interest-heart" data-id="wrap-001" data-name="Azure Knot Headband" data-price="15000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1183,7 +1267,7 @@
                     <h3>Mocha Cream Twist</h3>
                 </div>
 
-                <button class="interest-heart" data-id="runner-002" data-name="Elegant Table Runners" data-price="10000"
+                <button class="interest-heart" data-id="runner-002" data-name="Mocha Cream Twist" data-price="10000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1206,7 +1290,7 @@
                     <h3>Sunset Halo Drops</h3>
                 </div>
 
-                <button class="interest-heart" data-id="throw-001" data-name="Luxury Throws" data-price="12000"
+                <button class="interest-heart" data-id="throw-001" data-name="Sunset Halo Drops" data-price="10000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1229,7 +1313,7 @@
                 </div>
 
                 <!-- Heart Button -->
-                <button class="interest-heart" data-id="shawl-001" data-name="Royal Evening Shawls" data-price="15000"
+                <button class="interest-heart" data-id="shawl-001" data-name="Amethyst Loop Drops" data-price="10000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1251,7 +1335,7 @@
                     <h3>Rustic Twist Headband</h3>
                 </div>
 
-                <button class="interest-heart" data-id="wrap-002" data-name="Ceremonial Wraps" data-price="15000"
+                <button class="interest-heart" data-id="wrap-002" data-name="Rustic Twist Headband" data-price="10000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1273,7 +1357,7 @@
                     <h3>Twilight Gradient Band</h3>
                 </div>
 
-                <button class="interest-heart" data-id="runner-001" data-name="Elegant Table Runners" data-price="10000"
+                <button class="interest-heart" data-id="runner-001" data-name="Twilight Gradient Band" data-price="15000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1295,7 +1379,7 @@
                     <h3>Emerald Bloom Drops</h3>
                 </div>
 
-                <button class="interest-heart" data-id="throw-002" data-name="Luxury Throws" data-price="12000"
+                <button class="interest-heart" data-id="throw-002" data-name="Emerald Bloom Drops" data-price="12000"
                     aria-label="Add to interest list">
                     ♡
                 </button>
@@ -1404,11 +1488,63 @@
             </a>
         </div>
     </section>
+
     <script>
 
-        // ======================
-        // OTHER FUNCTIONALITY
-        // ======================
+        // Get DOM elements
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        // Toggle mobile menu
+        hamburger.addEventListener('click', function () {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on window resize (if user rotates device)
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar height
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
 
         // Smooth scrolling
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
