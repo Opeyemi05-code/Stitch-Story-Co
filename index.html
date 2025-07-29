@@ -32,6 +32,13 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
         }
 
+        @media (max-width: 768px) {
+            .luxury-cursor {
+                display: none;
+            }
+        }
+
+
         .hero {
             height: 100vh;
             display: flex;
@@ -1011,6 +1018,12 @@
                 background-color: #f8f8f8;
                 color: #d4af37;
             }
+        }
+
+        .gallery-item:hover,
+        .interest-heart,
+        .nav-menu a {
+            cursor: default;
         }
 
 
